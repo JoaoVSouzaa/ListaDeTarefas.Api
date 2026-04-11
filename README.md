@@ -60,7 +60,8 @@ Esses comandos irão restaurar dependências, aplicar as migrations no banco de 
 
 ## Documentação da API
 Após iniciar a aplicação, a documentação interativa pode ser acessada em:
-[http://localhost:5007/swagger](http://localhost:5007/swagger)
+- [http://localhost:5007/swagger](http://localhost:5007/swagger)
+
 Através do Swagger é possível visualizar todos os endpoints disponíveis e realizar testes diretamente pela interface.
 
 ## Estrutura do projeto
@@ -75,10 +76,8 @@ O projeto está organizado nas seguintes camadas:
 e essa organização foi adotada para manter o código mais estruturado e de fácil manutenção.
 
 ## Observações
-a) As datas são armazenadas em UTC para evitar problemas com fuso horário;
-b) O banco de dados é executado em container Docker;
-c) A aplicação segue uma arquitetura simples em camadas;
-d) O projeto foi desenvolvido com foco no backend, conforme o escopo do desafio.
+- As datas armazenadas em UTC para evitar problemas com fuso horário.
+- Banco de dados executado em container Docker.
 
 ## Autor 
 João Vitor Souza
