@@ -1,4 +1,4 @@
-﻿# ListaDeTarefas.Api
+# ListaDeTarefas.Api
 
 ## Descrição
 
@@ -151,4 +151,3 @@ Por isso, é necessário que o backend esteja em execução para que a aplicaç�
 - O projeto foi desenvolvido com foco em backend, mas inclui um frontend funcional para interação completa com a API.
 
 ## Desenvolvido por João Vitor
-
