@@ -2,82 +2,155 @@
 
 ## Descrição
 
-API REST desenvolvida em .NET para gerenciamento de tarefas.
-O projeto foi criado como parte de um desafio técnico e permite realizar operações completas de CRUD (Create, Read, Update, Delete), além de possibilitar o filtro de tarefas por status.
+Esta é uma aplicação fullstack desenvolvida para gerenciamento de tarefas. O projeto foi criado como parte de um desafio técnico e permite realizar operações completas de CRUD (Create, Read, Update e Delete), além de possibilitar o filtro de tarefas por status.
 
-A aplicação foi estruturada seguindo uma organização em camadas (Controller, Service e Repository), com o objetivo de manter separação de responsabilidades e facilitar manutenção e entendimento do código.
+A solução é composta por um backend em .NET e um frontend em Angular, com comunicação via API REST. A arquitetura foi organizada em camadas para garantir separação de responsabilidades, facilitar a manutenção e melhorar a legibilidade do código.
 
 ## Funcionalidades
 
-A API oferece as seguintes funcionalidades:
-- **Criação de tarefas:** cadastra novas tarefas informando título e descrição
-- **Listagem de tarefas:** retorna todas as tarefas cadastradas no sistema
-- **Consulta por ID:** busca uma tarefa específica
-- **Atualização de tarefas:** altera dados e status de uma tarefa existente
-- **Remoção de tarefas:** exclui uma tarefa do banco de dados
-- **Filtro por status:** consulta tarefas com base no seu estado (ex: pendente, em andamento, concluída)
-- **Documentação interativa:** interface Swagger para teste dos endpoints
+A aplicação oferece as seguintes funcionalidades:
+- Criação de tarefas
+  - Permite cadastrar novas tarefas informando título e descrição. O status inicial da tarefa é definido como pendente.
+- Listagem de tarefas
+  - Exibe todas as tarefas cadastradas no sistema.
+- Consulta por ID
+  - Permite buscar uma tarefa específica pelo identificador.
+- Atualização de tarefas
+  - Permite editar título, descrição e status de uma tarefa existente.
+- Remoção de tarefas
+  - Possibilita excluir tarefas do banco de dados.
+- Filtro por status
+  - Permite visualizar tarefas com base no status (pendente, em andamento ou concluída).
+- Interface web
+  - O frontend permite interação completa com a API, incluindo criação, edição, exclusão e filtragem de tarefas.
 
-## Tecnologias Utilizadas
-
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-
-- **.NET 10 / ASP.NET Core Web API:** utilizado para construção da API REST 
-- **Entity Framework Core:** ORM responsável pelo mapeamento objeto-relacional 
-- **PostgreSQL:** banco de dados relacional utilizado para persistência dos dados 
-- **Docker:** utilizado para execução do banco de dados em container 
-- **Swagger / OpenAPI:** utilizado para documentação e testes da API 
+## Tecnologias utilizadas
+### Backend
+- .NET / ASP.NET Core Web API
+- Entity Framework Core
+- PostgreSQL
+- Docker
+### Frontend
+- Angular
+- TypeScript
+- HTML / CSS 
+### Ferramentas adicionais 
+- Swagger / OpenAPI para documentação da API 
+- Node.js e npm para gerenciamento do frontend 
 
 ## Como executar o projeto
-
-### Pré-requisitos
+### Pré-requisitos 
 Antes de iniciar, é necessário ter instalado:
-- .NET SDK
-- Docker Desktop
-
-### Subindo o banco de dados (PostgreSQL)
-Para iniciar o banco de dados, execute o comando abaixo:
+- .NET SDK 
+- Docker Desktop 
+- Node.js 
+- Angular CLI 
+### Backend (API)
+#### Subindo o banco de dados (PostgreSQL)
 ```bash
-docker run --name postgres-listatarefas -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=listatarefasdb -p 5432:5432 -d postgres
+docker run --name postgres-listatarefas \ 
+e POSTGRES_PASSWORD=postgres \ 
+e POSTGRES_DB=listatarefasdb \ 
+p 5432:5432 \ 
+d postgres
 ```
+
 Caso o container já tenha sido criado anteriormente, utilize:
 ```bash
 docker start postgres-listatarefas
 ```
 
-### Executando a aplicação
-Com o banco em execução, navegue até a pasta do projeto e execute:
+#### Executando o backend
 ```bash
 dotnet restore
-```
-```bash
 dotnet ef database update
-```
-```bash
 dotnet run
 ```
-Esses comandos irão restaurar dependências, aplicar as migrations no banco de dados e iniciar a aplicação.
 
-## Documentação da API
-Após iniciar a aplicação, a documentação interativa pode ser acessada em:
-- [http://localhost:5007/swagger](http://localhost:5007/swagger)
+Esses comandos irão restaurar as dependências, aplicar as migrations no banco de dados e iniciar a aplicação.
+A API estará disponível em:
+
+http://localhost:5007
+
+### Documentação da API
+Após iniciar o backend, a documentação interativa pode ser acessada em:
+
+http://localhost:5007/swagger
 
 Através do Swagger é possível visualizar todos os endpoints disponíveis e realizar testes diretamente pela interface.
 
+### Frontend (Angular)
+
+O frontend da aplicação foi desenvolvido em Angular e é responsável por consumir a API do backend e permitir a interação do usuário com a lista de tarefas.
+
+#### Funcionalidades do frontend
+
+def listagem de tarefas
+def criação de tarefas
+def edição de tarefas
+def exclusão de tarefas
+def filtro por status
+def exibição de mensagens de sucesso
+def feedback visual de carregamento
+
+#### Executando o frontend
+```bash
+cd lista-de-tarefas-ui
+npm install
+ng serve
+```
+
+Após isso, o frontend estará disponível em:
+
+http://localhost:4200
+
+Integração entre frontend e backend
+O frontend está configurado para consumir a API em:
+
+http://localhost:5007
+
+Por isso, é necessário que o backend esteja em execução para que a aplicação funcione corretamente.
+
 ## Estrutura do projeto
-O projeto está organizado nas seguintes camadas:
-- **Controllers:** responsáveis por receber as requisições HTTP e retornar as respostas.
-- **Services:** concentram as regras de negócio da aplicação.
-- **Repositories:** responsáveis pela comunicação com o banco de dados.
-- **Data:** contém a configuração do DbContext e conexão com o banco.
-- **Models:** representam as entidades do sistema.
-- **DTOs:** utilizados para transferência de dados entre as camadas.
-- **Enums:** definem valores fixos, como o status das tarefas.
-e essa organização foi adotada para manter o código mais estruturado e de fácil manutenção.
+### Backend
+
+Controllers
+Responsáveis por receber as requisições HTTP e retornar as respostas.
+
+Services
+Contêm as regras de negócio da aplicação.
+
+Repositories
+Responsáveis pela comunicação com o banco de dados.
+
+Data
+Configuração do DbContext e conexão com o banco.
+
+Models
+Representação das entidades do sistema.
+
+DTOs
+Objetos utilizados para transferência de dados entre as camadas.
+
+Enums
+Definem valores fixos, como o status das tarefas.
+
+### Frontend
+
+Component principal
+Responsável pela interface e interação com o usuário.
+
+Serviços HTTP
+Responsáveis por consumir a API.
+
+Templates HTML
+Estrutura visual da aplicação.
 
 ## Observações
-- As datas armazenadas em UTC para evitar problemas com fuso horário.
-- Banco de dados executado em container Docker.
+As datas são armazenadas em UTC para evitar problemas com fuso horário.
+O banco de dados é executado em container Docker.
+A aplicação segue uma arquitetura em camadas no backend.
+O frontend consome a API diretamente via HTTP.
+O projeto foi desenvolvido com foco em backend, mas inclui um frontend funcional para interação completa com a API.
 
-## Autor 
-João Vitor Souza
+## AutorDesenvolvido por João Vitor
