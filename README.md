@@ -48,10 +48,10 @@ Antes de iniciar, é necessário ter instalado:
 ### Backend (API)
 #### Subindo o banco de dados (PostgreSQL)
 ```bash
-docker run --name postgres-listatarefas \ 
-e POSTGRES_PASSWORD=postgres \ 
-e POSTGRES_DB=listatarefasdb \ 
-p 5432:5432 \ 
+docker run --name postgres-listatarefas 
+e POSTGRES_PASSWORD=postgres 
+e POSTGRES_DB=listatarefasdb 
+p 5432:5432 
 d postgres
 ```
 
@@ -114,43 +114,43 @@ Por isso, é necessário que o backend esteja em execução para que a aplicaç�
 ## Estrutura do projeto
 ### Backend
 
-Controllers
-Responsáveis por receber as requisições HTTP e retornar as respostas.
+- Controllers
+  - Responsáveis por receber as requisições HTTP e retornar as respostas.
 
-Services
-Contêm as regras de negócio da aplicação.
+- Services
+  - Contêm as regras de negócio da aplicação.
 
-Repositories
-Responsáveis pela comunicação com o banco de dados.
+- Repositories
+  - Responsáveis pela comunicação com o banco de dados.
 
-Data
-Configuração do DbContext e conexão com o banco.
+- Data
+  - Configuração do DbContext e conexão com o banco.
 
-Models
-Representação das entidades do sistema.
+- Models
+  - Representação das entidades do sistema.
 
-DTOs
-Objetos utilizados para transferência de dados entre as camadas.
+- DTOs
+  - Objetos utilizados para transferência de dados entre as camadas.
 
-Enums
-Definem valores fixos, como o status das tarefas.
+- Enums
+  - Definem valores fixos, como o status das tarefas.
 
 ### Frontend
 
-Component principal
-Responsável pela interface e interação com o usuário.
+- Component principal
+  - Responsável pela interface e interação com o usuário.
 
-Serviços HTTP
-Responsáveis por consumir a API.
+- Serviços HTTP
+  - Responsáveis por consumir a API.
 
-Templates HTML
-Estrutura visual da aplicação.
+- Templates HTML
+  - Estrutura visual da aplicação.
 
 ## Observações
-As datas são armazenadas em UTC para evitar problemas com fuso horário.
-O banco de dados é executado em container Docker.
-A aplicação segue uma arquitetura em camadas no backend.
-O frontend consome a API diretamente via HTTP.
-O projeto foi desenvolvido com foco em backend, mas inclui um frontend funcional para interação completa com a API.
+- As datas são armazenadas em UTC para evitar problemas com fuso horário.
+- O banco de dados é executado em container Docker.
+- A aplicação segue uma arquitetura em camadas no backend.
+- O frontend consome a API diretamente via HTTP.
+- O projeto foi desenvolvido com foco em backend, mas inclui um frontend funcional para interação completa com a API.
 
-## AutorDesenvolvido por João Vitor
+## Desenvolvido por João Vitor
