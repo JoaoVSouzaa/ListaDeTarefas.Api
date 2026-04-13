@@ -48,11 +48,8 @@ Antes de iniciar, é necessário ter instalado:
 ### Backend (API)
 #### Subindo o banco de dados (PostgreSQL)
 ```bash
-docker run --name postgres-listatarefas 
-e POSTGRES_PASSWORD=postgres 
-e POSTGRES_DB=listatarefasdb 
-p 5432:5432 
-d postgres
+cd backend/ListaDeTarefas.Api
+docker run --name postgres-listatarefas e POSTGRES_PASSWORD=postgres e POSTGRES_DB=listatarefasdb p 5432:5432 d postgres
 ```
 
 Caso o container já tenha sido criado anteriormente, utilize:
@@ -95,7 +92,7 @@ O frontend da aplicação foi desenvolvido em Angular e é responsável por cons
 
 #### Executando o frontend
 ```bash
-cd lista-de-tarefas-ui
+cd frontend/lista-de-tarefas-ui
 npm install
 ng serve
 ```
