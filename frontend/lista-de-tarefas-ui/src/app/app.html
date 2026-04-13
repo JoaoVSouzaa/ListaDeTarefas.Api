@@ -1,0 +1,71 @@
+<div style="max-width: 700px; margin: auto; font-family: Arial;">
+
+  <h2>{{ editandoId ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+
+  <input [(ngModel)]="novaTarefa.titulo" placeholder="Título" style="width: 100%;" />
+  <br /><br />
+
+  <input [(ngModel)]="novaTarefa.descricao" placeholder="Descrição" style="width: 100%;" />
+  <br /><br />
+
+  @if (editandoId) {
+  <label>Status:</label>
+  <select [(ngModel)]="novaTarefa.status">
+    <option [ngValue]="1">Pendente</option>
+    <option [ngValue]="2">Em andamento</option>
+    <option [ngValue]="3">Concluída</option>
+  </select>
+  <br /><br />
+  }
+
+  <button type="button" (click)="editandoId ? atualizarTarefa() : criarTarefa()">
+    {{ editandoId ? 'Salvar' : 'Criar' }}
+  </button>
+
+  <button type="button" *ngIf="editandoId" (click)="cancelarEdicao()">
+    Cancelar
+  </button>
+
+  @if (mensagem) {
+  <div style="
+      background-color: #d4edda;
+      color: #155724;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    ">
+    {{ mensagem }}
+  </div>
+  }
+
+  <hr />
+
+  <h1>Lista de Tarefas</h1>
+
+  <label>Filtrar por status:</label>
+  <select [(ngModel)]="filtroStatus" (change)="aplicarFiltro()">
+    <option [ngValue]="null">Todos</option>
+    <option [ngValue]="1">Pendente</option>
+    <option [ngValue]="2">Em andamento</option>
+    <option [ngValue]="3">Concluída</option>
+  </select>
+
+  <p>Total: {{ tarefas.length }}</p>
+
+  @if (carregando) {
+  <p>Carregando tarefas...</p>
+  }
+
+  @for (tarefa of tarefas; track tarefa.id) {
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+    <strong>{{ tarefa.titulo }}</strong><br />
+    {{ tarefa.descricao }}<br />
+    <em>Status: {{ obterTextoStatus(tarefa.status) }}</em>
+    <br /><br />
+
+    <button type="button" (click)="editarTarefa(tarefa)">Editar</button>
+    <button type="button" (click)="deletarTarefa(tarefa.id)">Excluir</button>
+  </div>
+  }
+
+</div>
