@@ -85,13 +85,13 @@ O frontend da aplicação foi desenvolvido em Angular e é responsável por cons
 
 #### Funcionalidades do frontend
 
-def listagem de tarefas
-def criação de tarefas
-def edição de tarefas
-def exclusão de tarefas
-def filtro por status
-def exibição de mensagens de sucesso
-def feedback visual de carregamento
+- Listagem de tarefas
+- Criação de tarefas
+- Edição de tarefas
+- Exclusão de tarefas
+- Filtro por status
+- Exibição de mensagens de sucesso
+- Feedback visual de carregamento
 
 #### Executando o frontend
 ```bash
